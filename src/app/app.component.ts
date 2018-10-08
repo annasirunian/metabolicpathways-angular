@@ -12,6 +12,9 @@ export class AppComponent {
     document
       .getElementById("show_demo")
       .addEventListener("click", () => this.handleShowDemo());
+    document
+      .getElementById("file_selector")
+      .addEventListener("change", () => this.handleFileSelect(event));
   }
 
   embedPathwayMap(data) {
@@ -23,6 +26,16 @@ export class AppComponent {
   loadFile(text) {
     let data = JSON.parse(text);
     this.embedPathwayMap(data);
+  }
+
+  handleFileSelect(evt) {
+    let file = evt.target.files[0];
+    let reader = new FileReader();
+
+    reader.onload = e => this.loadFile(e.target.result);
+
+    reader.readAsText(file);
+    document.getElementById("file_selector").value = "";
   }
 
   handleShowDemo() {
