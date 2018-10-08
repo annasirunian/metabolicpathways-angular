@@ -1,1 +1,1 @@
-declare module "escher";
+declare module "escher-vis";
