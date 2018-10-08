@@ -1,0 +1,11 @@
+#parent_container {
+  height: 95%;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
+#map_container {
+  height: 100%;
+  width: 80%;
+}

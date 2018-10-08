@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Builder } from "escher";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = 'Angular';
+  ngOnInit() {
+    this.embedPathwayMap(null);
+  }
+
+  embedPathwayMap(data) {
+    Builder(data, null, null, document.getElementById("map_container"), {
+      menu: "zoom",
+      enable_editing: false
+    });
+  }
 }
