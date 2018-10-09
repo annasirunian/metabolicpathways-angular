@@ -23,7 +23,7 @@ export class StatisticsComponent {
     let nodeTypes = {};
     let nodes = Object.values(data[1].nodes);
     for (let node of nodes) {
-      let nodeType = node.node_type;
+      let nodeType = node["node_type"];
       if (!(nodeType in nodeTypes)) {
         nodeTypes[nodeType] = 0;
       }
@@ -37,7 +37,7 @@ export class StatisticsComponent {
     let genes = {};
     let reactions = Object.values(data[1].reactions);
     for (let reaction of reactions) {
-      for (let geneInReaction of reaction.genes) {
+      for (let geneInReaction of reaction["genes"]) {
         let gene = geneInReaction.name;
         if (!(gene in genes)) {
           genes[gene] = 0;

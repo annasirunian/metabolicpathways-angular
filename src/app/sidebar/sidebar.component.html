@@ -7,7 +7,7 @@
   </label>
   <button id="show_demo" (click)="handleShowDemo()">Show demo map</button>
   <label id="load_file" class="button"> Load map from file
-    <input type="file" id="file_selector" (input)="handleFileSelect($event)" />
+    <input #fileSelector type="file" id="file_selector" (input)="handleFileSelect($event)" />
   </label>
   <div *ngIf="isErrorVisible" id="load_error">Error loading the file, please try again.</div>
   <app-statistics></app-statistics>
