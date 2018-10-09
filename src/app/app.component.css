@@ -20,6 +20,15 @@
   display: none;
 }
 
+#load_error {
+  color: red;
+  display: none;
+}
+
+#load_error.visible {
+  display: block;
+}
+
 button,
 .button {
   padding: 10px 15px;

@@ -27,8 +27,14 @@ export class AppComponent {
   }
 
   loadFile(text) {
-    let data = JSON.parse(text);
-    this.embedPathwayMap(data);
+    try {
+      let data = JSON.parse(text);
+      this.embedPathwayMap(data);
+      document.getElementById("load_error").className = "";
+    } catch (err) {
+      console.error("Unable to load file: ", err);
+      document.getElementById("load_error").className = "visible";
+    }
   }
 
   handleThemeChange(evt) {
