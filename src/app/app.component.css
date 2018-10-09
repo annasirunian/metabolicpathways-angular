@@ -3,10 +3,10 @@
   width: 100%;
   display: flex;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 #map_container {
-  height: 95%;
   width: 80%;
 }
 
@@ -14,6 +14,21 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  margin-left: 10px;
+}
+
+#statistics_container {
+  overflow-x: hidden;
+}
+
+#sidebar_container > *,
+#statistics_container > * {
+  margin-bottom: 10px;
+}
+
+#sidebar_container > *:last-child,
+#statistics_container > *:last-child {
+  margin-bottom: 0;
 }
 
 #load_file input[type="file"] {
@@ -36,7 +51,7 @@ table {
 
 #node_statistics.visible,
 #gene_statistics.visible {
-  display: block;
+  display: table;
 }
 
 table,
