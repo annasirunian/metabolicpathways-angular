@@ -1,4 +1,4 @@
 <div id="parent_container" [class]="theme">
-    <app-map></app-map>
-    <app-sidebar></app-sidebar>
+    <app-map #appMap></app-map>
+    <app-sidebar (embedPathwayMapClicked)="appMap.embedPathwayMap($event)"></app-sidebar>
 </div>
