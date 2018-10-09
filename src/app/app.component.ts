@@ -15,6 +15,9 @@ export class AppComponent {
     document
       .getElementById("file_selector")
       .addEventListener("change", () => this.handleFileSelect(event));
+    document
+      .getElementById("theme_selector")
+      .addEventListener("change", () => this.handleThemeChange(event));
   }
 
   embedPathwayMap(data) {
@@ -28,6 +31,10 @@ export class AppComponent {
     this.embedPathwayMap(data);
   }
 
+  handleThemeChange(evt) {
+    document.getElementById("parent_container").className = evt.target.value;
+  }
+
   handleFileSelect(evt) {
     let file = evt.target.files[0];
     let reader = new FileReader();
@@ -35,7 +42,7 @@ export class AppComponent {
     reader.onload = e => this.loadFile(e.target.result);
 
     reader.readAsText(file);
-    document.getElementById("file_selector").value = "";
+    (<HTMLInputElement>document.getElementById("file_selector")).value = "";
   }
 
   handleShowDemo() {

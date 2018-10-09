@@ -2,9 +2,17 @@ body,
 html {
   height: 100%;
   width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 body {
   margin: 0px;
+}
+
+.green_theme svg.escher-svg .arrowhead {
+  fill: green !important;
+}
+
+.green_theme svg.escher-svg .segment {
+  stroke: green !important;
 }

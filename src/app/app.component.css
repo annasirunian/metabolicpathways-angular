@@ -9,3 +9,41 @@
   height: 95%;
   width: 80%;
 }
+
+#sidebar_container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+#load_file input[type="file"] {
+  display: none;
+}
+
+button,
+.button {
+  padding: 10px 15px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 7px;
+  background: #eae8e8;
+  box-shadow: 1px 1px #928a8a;
+  border: none;
+  font-size: 18px;
+  font-family: serif;
+  color: black;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+button:hover,
+.button:hover {
+  background-color: #4b6385;
+  color: white;
+}
+
+.green_theme button:hover,
+.green_theme .button:hover {
+  background-color: #4caf50;
+  color: white;
+}
