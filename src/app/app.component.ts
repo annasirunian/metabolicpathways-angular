@@ -10,6 +10,7 @@ export class AppComponent {
   nodeTypes = [];
   genes = [];
   isErrorVisible: boolean = false;
+  theme = "default_theme";
 
   ngOnInit() {
     this.embedPathwayMap(null);
@@ -34,7 +35,7 @@ export class AppComponent {
   }
 
   handleThemeChange(evt) {
-    document.getElementById("parent_container").className = evt.target.value;
+    this.theme = evt.target.value;
   }
 
   handleFileSelect(evt) {
