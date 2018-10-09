@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-#map_container {
-  width: 80%;
-}
-
 #sidebar_container {
   display: flex;
   align-items: flex-start;

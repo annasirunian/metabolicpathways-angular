@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { Builder } from "escher-vis";
+import { MapComponent } from "./map/map.component";
+import { Component, ViewChild } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -8,6 +8,9 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  @ViewChild(MapComponent)
+  private mapComponent: MapComponent;
+
   nodeTypes = [];
   genes = [];
   isErrorVisible = false;
@@ -16,22 +19,17 @@ export class AppComponent {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    this.embedPathwayMap(null);
-  }
-
   embedPathwayMap(data) {
-    Builder(data, null, null, document.getElementById("map_container"), {
-      menu: "zoom"
-    });
+    this.mapComponent.embedPathwayMap(data);
   }
 
   loadFile(text, toParse) {
     try {
+      let data;
       if (toParse) {
-        let data = JSON.parse(text);
+        data = JSON.parse(text);
       } else {
-        let data = text;
+        data = text;
       }
       this.embedPathwayMap(data);
       this.getStatistics(data);
