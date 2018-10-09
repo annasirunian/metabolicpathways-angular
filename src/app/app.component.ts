@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Builder } from "escher-vis";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-root",
@@ -9,8 +10,10 @@ import { Builder } from "escher-vis";
 export class AppComponent {
   nodeTypes = [];
   genes = [];
-  isErrorVisible: boolean = false;
+  isErrorVisible = false;
   theme = "default_theme";
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.embedPathwayMap(null);
@@ -22,9 +25,13 @@ export class AppComponent {
     });
   }
 
-  loadFile(text) {
+  loadFile(text, toParse) {
     try {
-      let data = JSON.parse(text);
+      if (toParse) {
+        let data = JSON.parse(text);
+      } else {
+        let data = text;
+      }
       this.embedPathwayMap(data);
       this.getStatistics(data);
       this.isErrorVisible = false;
@@ -42,17 +49,14 @@ export class AppComponent {
     let file = evt.target.files[0];
     let reader = new FileReader();
 
-    reader.onload = e => this.loadFile(e.target.result);
+    reader.onload = e => this.loadFile(e.target.result, true);
 
     reader.readAsText(file);
     document.getElementById("file_selector").value = "";
   }
 
   handleShowDemo() {
-    let client = new XMLHttpRequest();
-    client.open("GET", "demo.json");
-    client.onload = () => this.loadFile(client.responseText);
-    client.send();
+    this.http.get("demo.json").subscribe(data => this.loadFile(data, false));
   }
 
   clearStatistics() {
