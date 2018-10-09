@@ -12,6 +12,7 @@ export class AppComponent {
   genes = [];
   isErrorVisible = false;
   theme = "default_theme";
+  areTablesVisible = false;
 
   constructor(private http: HttpClient) {}
 
@@ -48,9 +49,7 @@ export class AppComponent {
   handleFileSelect(evt) {
     let file = evt.target.files[0];
     let reader = new FileReader();
-
     reader.onload = e => this.loadFile(e.target.result, true);
-
     reader.readAsText(file);
     document.getElementById("file_selector").value = "";
   }
@@ -60,18 +59,13 @@ export class AppComponent {
   }
 
   clearStatistics() {
-    let container = document.getElementById("statistics_container");
-    if (container.firstChild.nodeName === "SPAN") {
-      container.removeChild(container.firstChild);
-    }
+    this.areTablesVisible = true;
     this.nodeTypes = [];
     this.genes = [];
   }
 
   getStatistics(data) {
     this.clearStatistics();
-    document.getElementById("node_statistics").className = "visible";
-    document.getElementById("gene_statistics").className = "visible";
 
     // Nodes statistics
     let nodeTypes = {};

@@ -41,12 +41,6 @@
 
 table {
   border-collapse: collapse;
-  display: none;
-}
-
-#node_statistics.visible,
-#gene_statistics.visible {
-  display: table;
 }
 
 table,
