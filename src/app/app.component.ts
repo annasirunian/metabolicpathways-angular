@@ -12,15 +12,6 @@ export class AppComponent {
 
   ngOnInit() {
     this.embedPathwayMap(null);
-    document
-      .getElementById("show_demo")
-      .addEventListener("click", () => this.handleShowDemo());
-    document
-      .getElementById("file_selector")
-      .addEventListener("change", () => this.handleFileSelect(event));
-    document
-      .getElementById("theme_selector")
-      .addEventListener("change", () => this.handleThemeChange(event));
   }
 
   embedPathwayMap(data) {
@@ -52,7 +43,7 @@ export class AppComponent {
     reader.onload = e => this.loadFile(e.target.result);
 
     reader.readAsText(file);
-    (<HTMLInputElement>document.getElementById("file_selector")).value = "";
+    document.getElementById("file_selector").value = "";
   }
 
   handleShowDemo() {

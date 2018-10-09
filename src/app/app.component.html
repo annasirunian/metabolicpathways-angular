@@ -2,14 +2,14 @@
     <div id="map_container"></div>
     <div id="sidebar_container">
         <label>Select color theme:
-            <select id="theme_selector">
+            <select id="theme_selector" (change)="handleThemeChange($event)">
                 <option value="default_theme">Default</option>
                 <option value="green_theme">Green</option>
             </select>
         </label>
-        <button id="show_demo">Show demo map</button>
+        <button id="show_demo" (click)="handleShowDemo()">Show demo map</button>
         <label id="load_file" class="button"> Load map from file
-            <input type="file" id="file_selector" />
+            <input type="file" id="file_selector" (change)="handleFileSelect($event)" />
         </label>
         <div id="load_error">Error loading the file, please try again.</div>
         <h3>Statistics</h3>
