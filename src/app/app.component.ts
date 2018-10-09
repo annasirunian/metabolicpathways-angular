@@ -9,6 +9,7 @@ import { Builder } from "escher-vis";
 export class AppComponent {
   nodeTypes = [];
   genes = [];
+  isErrorVisible: boolean = false;
 
   ngOnInit() {
     this.embedPathwayMap(null);
@@ -25,10 +26,10 @@ export class AppComponent {
       let data = JSON.parse(text);
       this.embedPathwayMap(data);
       this.getStatistics(data);
-      document.getElementById("load_error").className = "";
+      this.isErrorVisible = false;
     } catch (err) {
       console.error("Unable to load file: ", err);
-      document.getElementById("load_error").className = "visible";
+      this.isErrorVisible = true;
     }
   }
 

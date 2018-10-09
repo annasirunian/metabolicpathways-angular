@@ -37,11 +37,6 @@
 
 #load_error {
   color: red;
-  display: none;
-}
-
-#load_error.visible {
-  display: block;
 }
 
 table {
