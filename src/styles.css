@@ -8,11 +8,3 @@ html {
 body {
   margin: 0px;
 }
-
-.green_theme svg.escher-svg .arrowhead {
-  fill: green !important;
-}
-
-.green_theme svg.escher-svg .segment {
-  stroke: green !important;
-}

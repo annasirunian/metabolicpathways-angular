@@ -48,8 +48,8 @@ button:hover,
   color: white;
 }
 
-.green_theme button:hover,
-.green_theme .button:hover {
+:host-context(.green_theme) button:hover,
+:host-context(.green_theme) .button:hover {
   background-color: #4caf50;
   color: white;
 }

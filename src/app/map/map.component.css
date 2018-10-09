@@ -6,3 +6,11 @@
   width: 100%;
   height: 100%;
 }
+
+:host-context(.green_theme) >>> svg.escher-svg .arrowhead {
+  fill: green !important;
+}
+
+:host-context(.green_theme) >>> svg.escher-svg .segment {
+  stroke: green !important;
+}
