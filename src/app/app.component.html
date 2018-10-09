@@ -12,5 +12,29 @@
             <input type="file" id="file_selector" />
         </label>
         <div id="load_error">Error loading the file, please try again.</div>
+        <h3>Statistics</h3>
+        <div id="statistics_container">
+            <span>Please load a file first to see its statistics.</span>
+            <table id="node_statistics">
+                <tr>
+                    <th>Node type</th>
+                    <th>Number of nodes</th>
+                </tr>
+                <tr *ngFor="let node of nodeTypes">
+                    <td>{{node.type}}</td>
+                    <td>{{node.number}}</td>
+                </tr>
+            </table>
+            <table id="gene_statistics">
+                <tr>
+                    <th>Gene name</th>
+                    <th>Number of reactions</th>
+                </tr>
+                <tr *ngFor="let gene of genes">
+                    <td>{{gene.name}}</td>
+                    <td>{{gene.reactions}}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
