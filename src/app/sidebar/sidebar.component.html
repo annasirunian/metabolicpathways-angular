@@ -1,3 +1,39 @@
-<p>
-  sidebar works!
-</p>
+<div id="sidebar_container">
+  <label>Select color theme:
+    <select id="theme_selector" (change)="handleThemeChange($event)">
+      <option value="default_theme">Default</option>
+      <option value="green_theme">Green</option>
+    </select>
+  </label>
+  <button id="show_demo" (click)="handleShowDemo()">Show demo map</button>
+  <label id="load_file" class="button"> Load map from file
+    <input type="file" id="file_selector" (input)="handleFileSelect($event)" />
+  </label>
+  <div *ngIf="isErrorVisible" id="load_error">Error loading the file, please try again.</div>
+  <h3>Statistics</h3>
+  <div id="statistics_container">
+    <span *ngIf="!areTablesVisible; else displayTable">Please load a file first to see its statistics.</span>
+    <ng-template #displayTable>
+      <table>
+        <tr>
+          <th>Node type</th>
+          <th>Number of nodes</th>
+        </tr>
+        <tr *ngFor="let node of nodeTypes">
+          <td>{{node.type}}</td>
+          <td>{{node.number}}</td>
+        </tr>
+      </table>
+      <table #table>
+        <tr>
+          <th>Gene name</th>
+          <th>Number of reactions</th>
+        </tr>
+        <tr *ngFor="let gene of genes">
+          <td>{{gene.name}}</td>
+          <td>{{gene.reactions}}</td>
+        </tr>
+      </table>
+    </ng-template>
+  </div>
+</div>
